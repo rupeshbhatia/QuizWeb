@@ -1,0 +1,23 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* background-color: rgb(120, 237, 198); */
+ 
+}
+.top{
+height:20vh;
+width: 100%;
+}
+img{
+  height: 100%;
+  width: 100%;
+}
+.box{
+  margin: 2% auto;
+}
+.mainpage{
+  /* background-image: url("./images/6.jpg"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+}

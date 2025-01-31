@@ -1,0 +1,16 @@
+.adminPanel {
+    margin: 2px 0px;
+    width: 100%;
+    line-height: 4rem;
+text-decoration: none;
+  padding-left:30%;
+   color: black;
+}
+ .active{
+
+ background-color: rgb(0, 102, 255);
+ color: white;
+}
+body{
+    overflow-x: hidden;
+}
