@@ -15,6 +15,11 @@ let questionBank=mongoose.Schema({
     topic:{
         type:String,
         required:true
+        },
+        icon:{
+            type:Object,
+            
+          
         }
 
 })

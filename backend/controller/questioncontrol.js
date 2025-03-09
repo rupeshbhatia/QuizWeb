@@ -19,24 +19,25 @@ const AllQuestion=async(req,res)=>{
     let result=await Paper.find({})
     res.send(result)
 }
-const AlQuestion=async(req,res)=>{
-    try {
-        const topicsCount = await Paper.aggregate([
-          {
-            $group: {
-              _id: '$topic', // Group by topic
-              count: { $sum: 1 }, // Count the number of questions per topic
-            },
-          },
-        ]);
-    
-        res.json(topicsCount);
-      } catch (error) {
-        // console.error(error);
-        res.status(500).json({ message: 'Error retrieving data' });
-      }
-   
-}
+const AlQuestion = async (req, res) => {
+  try {
+    const topicsCount = await Paper.aggregate([
+      {
+        $group: {
+          _id: '$topic', // Group by topic
+          count: { $sum: 1 }, // Count the number of questions per topic
+          icon: { $first: '$icon' } // Get the icon of the topic (assuming each topic has one icon)
+        },
+      },
+    ]);
+
+    res.json(topicsCount);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error retrieving data' });
+  }
+};
+
 
 const topicDelete=async(req,res)=>{
   // console.log(req.params)
@@ -49,6 +50,11 @@ res.save()
         res.send(err)
     }
 }
+const editQuestions=async(req,res)=>{
+  console.log(req.body)
+  let result=await Paper.findOne({_id:req.params.id})
+  console.log(result)
+}
 module.exports={
-    insertQuestion,readQuestion,AllQuestion,AlQuestion,topicDelete
+    insertQuestion,readQuestion,AllQuestion,AlQuestion,topicDelete,editQuestions
 }

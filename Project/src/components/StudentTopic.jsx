@@ -1,66 +1,86 @@
-import { faPlaystation } from '@fortawesome/free-brands-svg-icons';
-import { faCirclePlay } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react'
-import { Row,Col,Card,Button} from 'react-bootstrap'
-import { data, Link } from 'react-router-dom'
 
-function StudentTopic({onDataChange,tlen}) {
-  const[data,setData]=useState([])
+import React, { useState, useEffect } from 'react';
+import { Card, Container } from 'react-bootstrap';
+import { Navigate, useNavigate } from 'react-router-dom';
 
-  const [childData, setChildData] = useState(tlen);
+function Availablequiz() {
+  const navigate = useNavigate();
 
-    let apidata=async()=>{
-        let result=await fetch("http://localhost:8080/findTopic")
-        result=await result.json();
-        setData(result)
-       
+  const [qcount, setQcount] = useState([]);
 
-    }
-    const sendDataToParent = () => {
-      onDataChange(childData); // Call the callback function provided by parent
-  
-    };
-  
-    useEffect(()=>{
-apidata()
+  const questionCount = async () => {
+    let result = await fetch("http://localhost:8080/alQuestion");
+    result = await result.json();
+    setQcount(result);
+    console.log(result);
+  };
 
-    },[])
-useEffect(()=>{
-  if(data.length>0){
-    // tlen(data.length)
+  useEffect(() => {
+    questionCount();
+  }, []);
 
-  }
-},)
+  const handleCardClick = (item) => {
+// console.log(item)
+    navigate(`/user/${item._id}`)
+
+  };
 
   return (
-    <Row>
-       
-      
-{
-    data.map((item)=>{
-        return(
-    <Col lg={4} sm={6} className='mt-2 p-3' key={item._id}>
-      <Link to={`/user/${item.name}`} className='text-decoration-none text-capitalize text-center'>
-  <Card style={{width:"100%", backgroundColor:"azure",textDecoration:"none"  }}>
-      <Card.Body>
-        <Card.Title>{item.name}</Card.Title>
-        <br />
-        <Button variant='success'>
-         
-          <FontAwesomeIcon icon={faCirclePlay }/> Play</Button>
-      </Card.Body>
-    </Card>
-     </Link>
-    </Col>
-        )
-    })
+    <>
+      <Container className="d-flex align-items-evenly flex-wrap gap-4  justify-content-start">
+        {qcount.map((item, idx) => (
+          <Card
+            key={idx}
+            className="border border-success"
+            style={{
+              width: '14rem',
+              height: '18rem',
+              padding: '.4rem',
+              cursor: 'pointer', // Make the card clickable
+            }}
+            onClick={() => handleCardClick(item)} // Use arrow function for parameter passing
+          >
+            <Card.Body className="d-flex flex-column justify-content-evenly border border-light p-1">
+              <div
+                className="card-icon bg-success d-flex flex-column justify-content-center text-white text-center position-relative"
+                style={{ height: '9rem' }}
+              >
+                {item.icon != null ? (
+                  <i className={`${item.icon.family} ${item.icon.icon} fs-2`}></i>
+                ) : (
+                  <i className="fa-solid fa-globe fs-1"></i>
+                )}
 
+                {/* <div className="position-absolute top-0 end-0 me-2">
+                  <i className="fa-solid fa-ellipsis"></i>
+                </div> */}
+              </div>
+              <Card.Title className="mt-1 text-capitalize">{item._id}</Card.Title>
+              <Card.Text>{item.count} Question(s)</Card.Text>
+              <div className="flex-row justify-content-evenly">
+                <i className="fa-solid fa-bullseye text-success"></i> 
+                &nbsp;
+                 Success rate: 80%
+                 &nbsp;
 
+                <i
+                  className="fa-solid fa-play bg-success rounded p-2 rounded-circle text-white text-center"
+                  style={{ height: '30px', width: '30px' }}
+                ></i>
+              </div>
+            </Card.Body>
+          </Card>
+        ))}
+
+        {/* <Card className="border border-success " style={{ width: '14rem', height: '18rem', padding: '.4rem', cursor: "pointer" }} onClick={() => navigate("/admin/createQuiz")}>
+          <Card.Body className="flex-column d-flex justify-content-evenly text-center " style={{ color: 'lightgrey' }}>
+            <i className="fa-solid fa-plus" style={{ fontSize: '8rem' }}></i>
+            <p>Add a new Quiz</p>
+          </Card.Body>
+        </Card>*/}
+      </Container> 
+    </>
+  );
 }
 
-    </Row>
-  )
-}
-
-export default StudentTopic
+export default Availablequiz;

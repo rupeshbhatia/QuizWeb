@@ -1,10 +1,10 @@
 import React, { useState,useEffect } from 'react'
 import Admincard from './Admincard'
-import { Row,Container } from 'react-bootstrap'
+import { Row,Container, Col } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarMinus, faUser } from '@fortawesome/free-regular-svg-icons'
 import { faPage4 } from '@fortawesome/free-brands-svg-icons'
-import StudentTopic from './StudentTopic'
+import Availablequiz from './Availablequiz'
 function Adminhome() {
   // let [topics,setTopics]=useState(0)
   let[userinfo,setUserinfo]=useState([])
@@ -32,18 +32,20 @@ function Adminhome() {
       questionCount()
       },[])
 
+
+         
   return (
     <>
-    <Row className='d-flex justify-content-evenly mt-3 align-items-center text-center'>
+    <Row className='d-flex justify-content-evenly mt-3 mb-4 align-items-center text-center'>
 <Admincard logo={<FontAwesomeIcon icon={faUser}/>}  txt="Users"  length={ucount}  />
     <Admincard logo={<FontAwesomeIcon icon={faPage4}/>} txt="Questions" length={qcount} />
     <Admincard logo={<FontAwesomeIcon icon={faCalendarMinus}/>}  txt="Topics" length={topiclen} />
     </Row>
-    <Row >
- <Container  className=' p-5' style={{userSelect:"none",pointerEvents:"none"}}>
-  <h2>Last Played</h2>
-      <StudentTopic tlen={tlen} />
-      </Container>
+    <Row className='pb-5 ' >
+ <Col lg={12} sm={12} >
+      <h4 className='text-center'>My Quizes</h4>
+     <Availablequiz/>
+      </Col>
     </Row>
     </>
   )

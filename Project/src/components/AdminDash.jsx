@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import { NavLink, Outlet } from 'react-router-dom';
 import Admincard from './Admincard';
 import style from './Admin.module.css';
+import './admin.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarMinus, faUser } from '@fortawesome/free-regular-svg-icons';
 import { faPage4 } from '@fortawesome/free-brands-svg-icons';
@@ -15,8 +16,8 @@ function AdminDash({ onDataChange }) {
 
   return (
     <>
-      <Row className='ms-0 '>
-        <Col lg={2} className='px-0 text-left d-flex flex-column bg-white ' style={{ height: '90vh'}}>
+      <Row className='ms-0 'id='main'>
+        <Col lg={2} md={3} className='px-0 text-left bg-light'  id='layout' style={{display:"flex",flexDirection:"column"}}>
           <NavLink
             to='/admin/dash'
             className={({ isActive }) => (isActive ? `${style.adminPanel} ${style.active}` : style.adminPanel)}
@@ -51,10 +52,10 @@ function AdminDash({ onDataChange }) {
           </NavLink>
         </Col>
 
-        <Col lg={10} className='me-0 pe-0 bg-light'>
+        <Col lg={10} sm={12} md={9} className=''>
           <Row className='d-flex justify-content-evenly me-0 pe-0 align-items-center'>
             <Row className='d-flex justify-content-center'>
-              <Col>
+              <Col sm={12}>
                 <Outlet onDataChange={onDataChange} />
               </Col>
             </Row>

@@ -1,10 +1,10 @@
 import React,{useState,useEffect} from 'react'
 import { Table,Button } from 'react-bootstrap'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 function ViewQuiz() {
+  let navigate=useNavigate();
   const[qcount,setQcount]=useState([])
-  // const[dtopic,setDtopic]=useState([])
         let questionCount=async()=>{
           let result=await fetch("http://localhost:8080/alQuestion")
           result=await result.json()
@@ -48,7 +48,7 @@ function ViewQuiz() {
           <td>{idx+1}.</td>
           <td>{item._id}</td>
           <td>{item.count}</td>
-          <td><Button variant='warning ' onClick={()=>deleteTopic(item._id)}>EDIT</Button></td>
+          <td><Button variant='warning ' onClick={()=>navigate(`/admin/editQuestion/${item._id}`)}>EDIT</Button></td>
           <td><Button variant='danger' onClick={()=>deleteTopic(item._id)}>DELETE</Button></td>
         </tr>
       )

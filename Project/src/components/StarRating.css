@@ -1,0 +1,19 @@
+.star {
+    font-size: 40px;
+    cursor: pointer;
+    color: #ccc; /* Default gray color */
+  }
+  
+  .star.selected {
+    color: gold; /* Selected stars are gold */
+  }
+  
+  .stars-container {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .rating-container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }

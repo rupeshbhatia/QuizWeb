@@ -11,16 +11,18 @@ function ProcessSuccess() {
   
   return (
     <>
-    <Container  >
-     <Row className='my-5 align-items-center justify-content-center px-3 ' >
-        <Col className='text-justify'>
-        <h1 className=''>Progress and Success</h1>
+    <Container fluid>
+     <Row className=' align-items-center gap-3 justify-content-center px-3 ' >
+        <Col className='text-justify lh-lg' lg={8}>
+        <h1 className='text-white  fs-1'>Progress and Success</h1>
         <br />
-        <p className='text-justify'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae cum neque mollitia, quae pariatur voluptatum asperiores id alias itaque, ad debitis accusamus ea voluptate quas nihil adipisci incidunt distinctio amet.
+        <p className='text-justify' style={{textAlign:"justify"}}>
+        At Quiz Maker, we're committed to helping you create and share engaging, effective quizzes that drive learning and growth. Our platform has evolved over time, incorporating feedback and new features to ensure a seamless, enjoyable experience for all users. Whether you're a teacher, business professional, or just someone looking to test your knowledge, we're proud to offer a tool that meets your needs.
+Join Our Community
+We're proud of how far we've come, but we're just getting started. The success of our platform is built on the collaboration and trust of users like you. As we continue to expand our features and refine the platform, we look forward to helping you create quizzes that inspire, inform, and engage.
         </p>
         </Col>
-        <Col className='d-flex flex-column gap-2 fs-2'>
+        <Col className='d-flex flex-column gap-3 fs-2' lg={3}>
         <Card cls="text-primary " icon={<FontAwesomeIcon icon={faCircleQuestion}/> } en={5} txt="Quizes"/>
         <Card cls="text-danger" icon={<FontAwesomeIcon icon={faChartBar} />} en={20} txt="Users"/>
         <Card cls="text-success" icon={<FontAwesomeIcon icon={faLine}/>} en={80} txt="Engagement"/>

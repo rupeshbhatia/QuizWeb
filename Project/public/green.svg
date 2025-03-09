@@ -1,0 +1,25 @@
+<svg width="502" height="60" viewBox="0 0 502 60" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<mask id="mask304004" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="502" height="60">
+<rect width="60" height="502" rx="30" transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 502 60)" fill="url(#paint3030032)"/>
+</mask>
+<g mask="url(#mask304004)">
+<rect width="60" height="587.223" rx="30" transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 502 60)" fill="url(#paint3930202)"/>
+<g style="mix-blend-mode:overlay" opacity="0.3" mask="url(#mask304004)">
+<rect  width="60" height="502" rx="30" transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 502 60)" fill="url(#pattern304040)"/>
+</g>
+</g>
+<defs>
+<pattern id="pattern304040" patternContentUnits="objectBoundingBox" width="3.66667" height="0.438247">
+<use xlink:href="#img2293903" transform="scale(0.0166667 0.00199203)"/>
+</pattern>
+<linearGradient id="paint3030032" x1="30" y1="0" x2="30" y2="502" gradientUnits="userSpaceOnUse">
+<stop/>
+<stop offset="1" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint3930202" x1="30" y1="0" x2="30" y2="587.223" gradientUnits="userSpaceOnUse">
+<stop stop-color="#00D37F"/>
+<stop offset="1" stop-color="#00D37F" stop-opacity="0"/>
+</linearGradient>
+<image id="img2293903" width="220" height="220" xlink:href="https://a.storyblok.com/f/120497/220x220/b78aae3b0d/do_not_delete_noise.png"/>
+</defs>
+</svg>

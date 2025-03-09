@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './App.css'
+import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
+
 import Questions from './components/Questions'
 import TNavbar from './components/Navbar'
 import Homepage from './components/Homepage'
@@ -21,6 +23,7 @@ import Adminhome from './components/Adminhome'
 import { Row } from 'react-bootstrap'
 import {UserInfo} from './components/UserInfo'
 import ViewQuiz from './components/ViewQuiz'
+import EditQuestions from './components/EditQuestions'
 // import AddQuestion from './components/AddQuestion'
 // import Quiz from './components/Quiz'
 // import Home from './components/Home'
@@ -38,7 +41,7 @@ function App() {
   
   return (
   <>
- <header style={{height:"max-content",width:"100%",zIndex:5,backgroundColor:"#37AECB",position:"sticky",top:0}}>
+ <header style={{height:"max-content",width:"100%",zIndex:5,backgroundColor:"rgb(255, 255, 255)",position:"sticky",top:0,color:"black",transition:"all 5s ease"}}>
   <TNavbar/>
   </header>
 
@@ -63,6 +66,7 @@ function App() {
     <Route path='/question' element={<Questions/>}/>
     <Route path='/admin' element={<AdminDash onDataChange={handleChildData} />}>
     <Route path='/admin/dash' element={<Adminhome/>}/>
+    <Route path='/admin/editQuestion/:topic' element={<EditQuestions/>}/>
     <Route path='/admin/viewQuiz' element={<ViewQuiz/>}/>
     <Route path='/admin/createQuiz' element={<CreateQuiz/>}>
     <Route path='addQuestion' element={<AddQuestion/>}/>
